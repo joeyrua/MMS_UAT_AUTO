@@ -23,8 +23,8 @@ password.send_keys(Keys.ENTER)#打完帳密按下Enter
 #----接換List----
 time.sleep(5)
 
-wait.until(lambda driver:driver.find_element("xpath","(.//*[normalize-space(text()) and normalize-space(.)='general v1.0.0'])[1]/following::div[1]"))
-member_manage = URL.find_element("xpath","(.//*[normalize-space(text()) and normalize-space(.)='general v1.0.0'])[1]/following::div[1]")
+wait.until(lambda driver:driver.find_element("xpath","//div[@id='root']/div[2]/div/div/div/div/div/div/div[2]/div/div/div/div[2]/ul/div/div[2]"))
+member_manage = URL.find_element("xpath","//div[@id='root']/div[2]/div/div/div/div/div/div/div[2]/div/div/div/div[2]/ul/div/div[2]")
 member_manage.click()#會員管理
 
 time.sleep(2)
@@ -51,9 +51,10 @@ for i in range(2):
     input_course_type.send_keys(Keys.DOWN)
 input_course_type.send_keys(Keys.ENTER)
 
+time.sleep(2)
 wait.until(lambda driver:driver.find_element("xpath","/html/body/div/div[2]/main/div[2]/div[2]/div[2]/div[2]/div/div/div/input"))
 input_organization = URL.find_element("xpath","/html/body/div/div[2]/main/div[2]/div[2]/div[2]/div[2]/div/div/div/input")
-input_organization.send_keys("DEV嚕嚕米學霸")#輸入機構名稱
+input_organization.send_keys("學barUAT")#輸入機構名稱
 time.sleep(5)
 input_organization.send_keys(Keys.DOWN)
 input_organization.send_keys(Keys.ENTER)
@@ -66,18 +67,18 @@ wait.until(lambda driver:driver.find_element("xpath","/html/body/div/div[2]/main
 choose_classroom = URL.find_element("xpath","/html/body/div/div[2]/main/div[2]/div[2]/div[3]/div[2]/div/div/div/input")
 choose_classroom.click()#選擇班級
 choose_classroom.send_keys(Keys.DELETE)
-choose_classroom.send_keys("DEV 杜測試班")
+choose_classroom.send_keys("學兒UAT")
 choose_classroom.send_keys(Keys.DOWN)
 choose_classroom.send_keys(Keys.ENTER)
 
 wait.until(lambda driver:driver.find_element("xpath","/html/body/div/div[2]/main/div[2]/div[3]/div[2]/div[2]/div/input"))
 course_date = URL.find_element("xpath","/html/body/div/div[2]/main/div[2]/div[3]/div[2]/div[2]/div/input")
-course_date.send_keys("20230926")#輸入課程日期
+course_date.send_keys("20230928")#輸入課程日期
 
 wait.until(lambda driver:driver.find_element("xpath","/html/body/div/div[2]/main/div[2]/div[3]/div[3]/div[2]/div/input"))
 start_time = URL.find_element("xpath","/html/body/div/div[2]/main/div[2]/div[3]/div[3]/div[2]/div/input")
-start_time.send_keys("1800")#輸入開始時間
-
+start_time.send_keys("1900")#輸入開始時間
+4
 URL.execute_script("window.scrollBy(0,500)")
 
 wait.until(lambda driver:driver.find_element("xpath","/html/body/div/div[2]/main/div[2]/div[4]/div[2]/div[2]/div[2]/div/div/input"))
@@ -92,17 +93,12 @@ time.sleep(2)
 wait.until(lambda driver:driver.find_element("xpath","/html/body/div/div[2]/main/div[2]/div[4]/div[3]/div[2]/div[2]/div/div/input"))
 choose_teacher = URL.find_element("xpath","/html/body/div/div[2]/main/div[2]/div[4]/div[3]/div[2]/div[2]/div/div/input")
 choose_teacher.click()#選擇老師
-choose_teacher.send_keys("黃分氣")
+choose_teacher.send_keys("黃一一")
+time.sleep(2)
 choose_teacher.send_keys(Keys.DOWN)
 choose_teacher.send_keys(Keys.ENTER)
 
 time.sleep(2)
-wait.until(lambda driver:driver.find_element("xpath","/html/body/div/div[2]/main/div[2]/div[4]/div[3]/div[2]/div[2]/div/div/input"))
-select_Series_of_books = URL.find_element("xpath","/html/body/div/div[2]/main/div[2]/div[4]/div[4]/div[2]/div/div/div/input")
-select_Series_of_books.send_keys("1下_段考複習_翰版")#選擇叢書
-select_Series_of_books.send_keys(Keys.DOWN)
-select_Series_of_books.send_keys(Keys.ENTER)
-
 URL.execute_script("window.scrollBy(0,500)")
 
 wait.until(lambda driver:driver.find_element("xpath","/html/body/div/div[2]/main/div[2]/div[5]/div[2]/div[2]/div/input"))

@@ -39,33 +39,31 @@ choose_bar = URL.find_element("xpath","/html/body/div[2]/div[3]/ul/li[2]")
 choose_bar.click()
 #選擇學霸
 
-time.sleep(2)
+time.sleep(3)
 
 wait.until(lambda driver:driver.find_element("xpath","/html/body/div/div[2]/main/div[2]/div[2]/div[2]/div/div/div/input"))
 input_institution = URL.find_element("xpath","/html/body/div/div[2]/main/div[2]/div[2]/div[2]/div/div/div/input")
 input_institution.click()#輸入機構名稱
-input_institution.send_keys("dev")
-time.sleep(2)
+input_institution.send_keys("uat")
+time.sleep(3)
 input_institution.send_keys(Keys.DOWN)
 input_institution.send_keys(Keys.ENTER)
 
-time.sleep(2)
+time.sleep(3)
 
 wait.until(lambda driver:driver.find_element("xpath","/html/body/div/div[2]/main/div[3]/div[2]/div/div/div/input"))
 input_onclub_id = URL.find_element("xpath","/html/body/div/div[2]/main/div[3]/div[2]/div/div/div/input")
-input_onclub_id.send_keys("bar004")#輸入oneclub_id:bar004
+input_onclub_id.send_keys("baruat002")#輸入oneclub_id:baruat002
 wait.until(lambda driver:driver.find_element("xpath","/html/body/div/div[2]/main/div[3]/div[3]/div/div/div/input"))
 input_name = URL.find_element("xpath","/html/body/div/div[2]/main/div[3]/div[3]/div/div/div/input")
-input_name.send_keys("黃杯杯")#輸入姓名:黃杯杯
+input_name.send_keys("✖黃可以")#輸入姓名
 
 URL.execute_script("window.scrollBy(0,500)")
 
 wait.until(lambda driver:driver.find_element("xpath","/html/body/div/div[2]/main/div[3]/div[6]/div/div/div/div/input"))
 press_choose_Counsellor = URL.find_element("xpath","/html/body/div/div[2]/main/div[3]/div[6]/div/div/div/div/input")
-press_choose_Counsellor.click()#按下選擇輔導老師
-
-for i in range(4):
-    press_choose_Counsellor.send_keys(Keys.DOWN)#選擇輔導老師:ID=4
+press_choose_Counsellor.send_keys("阮小昱")#輸入輔導老師
+press_choose_Counsellor.send_keys(Keys.DOWN)
 press_choose_Counsellor.send_keys(Keys.ENTER)
 
 wait.until(lambda driver:driver.find_element("xpath","/html/body/div/div[2]/main/div[4]/div[2]/div/div[2]/div/input"))
@@ -128,7 +126,7 @@ add_member.click()#新增成員
 time.sleep(2)
 wait.until(lambda driver:driver.find_element("xpath","/html/body/div/div[2]/main/div[2]/div[2]/div[2]/div/div/input"))
 input_student1 = URL.find_element("xpath","/html/body/div/div[2]/main/div[2]/div[2]/div[2]/div/div/input")
-input_student1.send_keys("黃一費")#輸入學生姓名
+input_student1.send_keys("✖黃不行")#輸入學生姓名
 
 wait.until(lambda driver:driver.find_element("xpath","/html/body/div/div[2]/main/div[2]/div[3]/div[2]/div/div/div/input"))
 school = URL.find_element("xpath","/html/body/div/div[2]/main/div[2]/div[3]/div[2]/div/div/div/input")

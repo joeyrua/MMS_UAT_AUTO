@@ -7,6 +7,7 @@ import time
 URL = uc.Chrome()
 wait = ui.WebDriverWait(URL,10)
 
+URL.maximize_window()
 URL.get("https://oneclub.backstage-uat.oneclass.com.tw/")
 
 def add_student_all():
@@ -27,19 +28,19 @@ password.send_keys(Keys.ENTER)#打完帳密按下Enter
 #----接換List----
 time.sleep(5)
 
-wait.until(lambda driver:driver.find_element("xpath","(.//*[normalize-space(text()) and normalize-space(.)='general v1.0.0'])[1]/following::div[1]"))
-member_manage = URL.find_element("xpath","(.//*[normalize-space(text()) and normalize-space(.)='general v1.0.0'])[1]/following::div[1]")
+wait.until(lambda driver:driver.find_element("xpath","//div[@id='root']/div[2]/div/div/div/div/div/div/div[2]/div/div/div/div[2]/ul/div/div[2]"))
+member_manage = URL.find_element("xpath","//div[@id='root']/div[2]/div/div/div/div/div/div/div[2]/div/div/div/div[2]/ul/div/div[2]")
 member_manage.click()
 
 time.sleep(2)
-wait.until(lambda driver:driver.find_element("xpath","(.//*[normalize-space(text()) and normalize-space(.)='會員管理'])[1]/following::div[1]"))
-Curroclum_Management = URL.find_element("xpath","(.//*[normalize-space(text()) and normalize-space(.)='會員管理'])[1]/following::div[1]")
+wait.until(lambda driver:driver.find_element("xpath","//div[@id='root']/div[2]/div/div/div/div/div/div/div[2]/div/div/div/div[2]/ul/div[2]/div[2]"))
+Curroclum_Management = URL.find_element("xpath","//div[@id='root']/div[2]/div/div/div/div/div/div/div[2]/div/div/div/div[2]/ul/div[2]/div[2]")
 Curroclum_Management.click()
 
 #----新增團課----
 time.sleep(2)
-wait.until(lambda driver:driver.find_element("xpath","(.//*[normalize-space(text()) and normalize-space(.)='試聽課程管理'])[1]/following::div[2]"))
-general_course = URL.find_element("xpath","(.//*[normalize-space(text()) and normalize-space(.)='試聽課程管理'])[1]/following::div[2]")
+wait.until(lambda driver:driver.find_element("xpath","//div[@id='root']/div[2]/div/div/div/div/div/div/div[2]/div/div/div/div[2]/ul/div[3]/div/div/div/a[4]/div[2]"))
+general_course = URL.find_element("xpath","//div[@id='root']/div[2]/div/div/div/div/div/div/div[2]/div/div/div/div[2]/ul/div[3]/div/div/div/a[4]/div[2]")
 general_course.click()#正式課
 
 wait.until(lambda driver:driver.find_element("xpath","/html/body/div[1]/div[2]/main/div[2]/div[1]/div/div[4]/button"))
@@ -56,9 +57,11 @@ course_type.click()#選擇課程類型
 course_type.send_keys(Keys.DOWN)
 course_type.send_keys(Keys.ENTER)#選擇團課
 
+URL.execute_script("window.scrollBy(0,500)")
+
 wait.until(lambda driver:driver.find_element("xpath","/html/body/div/div[2]/main/div[2]/div[2]/div[2]/div[2]/table/tbody/tr/td[1]/div/div/input"))
 input_oneClub = URL.find_element("xpath","/html/body/div/div[2]/main/div[2]/div[2]/div[2]/div[2]/table/tbody/tr/td[1]/div/div/input")
-input_oneClub.send_keys("green002")#輸入第一個學生的OneClub
+input_oneClub.send_keys("pink002")#輸入第一個學生的OneClub
 
 time.sleep(3)
 wait.until(lambda driver:driver.find_element("xpath","/html/body/div/div[2]/main/div[2]/div[2]/div[2]/div[2]/table/tbody/tr/td[2]/div/div/div/input"))
@@ -67,13 +70,11 @@ input_student.click()#選擇第一個學生姓名
 input_student.send_keys(Keys.DOWN)
 input_student.send_keys(Keys.ENTER)#學生姓名:林謙那
 
-URL.execute_script("window.scrollBy(0,500)")
-
 add_student_all()#呼叫新增學員
 
 wait.until(lambda driver:driver.find_element("xpath","/html/body/div/div[2]/main/div[2]/div[2]/div[2]/div[2]/table/tbody/tr[2]/td[1]/div/div/input"))
 input_oneclub_2 = URL.find_element("xpath","/html/body/div/div[2]/main/div[2]/div[2]/div[2]/div[2]/table/tbody/tr[2]/td[1]/div/div/input")
-input_oneclub_2.send_keys("green003")#輸入第二個學生的OneClub
+input_oneclub_2.send_keys("pink003")#輸入第二個學生的OneClub
 
 time.sleep(3)
 wait.until(lambda driver:driver.find_element("xpath","/html/body/div/div[2]/main/div[2]/div[2]/div[2]/div[2]/table/tbody/tr[2]/td[2]/div/div/div/input"))
@@ -86,7 +87,7 @@ add_student_all()#呼叫新增學員
 
 wait.until(lambda driver:driver.find_element("xpath","/html/body/div/div[2]/main/div[2]/div[2]/div[2]/div[2]/table/tbody/tr[3]/td[1]/div/div/input"))
 input_oneclub_3 = URL.find_element("xpath","/html/body/div/div[2]/main/div[2]/div[2]/div[2]/div[2]/table/tbody/tr[3]/td[1]/div/div/input")
-input_oneclub_3.send_keys("green004")#輸入第三個學生的OneClub
+input_oneclub_3.send_keys("pink004")#輸入第三個學生的OneClub
 
 time.sleep(3)
 wait.until(lambda driver:driver.find_element("xpath","/html/body/div/div[2]/main/div[2]/div[2]/div[2]/div[2]/table/tbody/tr[3]/td[2]/div/div/div/input"))
@@ -103,12 +104,12 @@ course_type.send_keys(Keys.ENTER)
 
 wait.until(lambda driver:driver.find_element("xpath","/html/body/div/div[2]/main/div[2]/div[3]/div[2]/div[2]/div/input"))
 input_course_date = URL.find_element("xpath","/html/body/div/div[2]/main/div[2]/div[3]/div[2]/div[2]/div/input")
-input_course_date.send_keys("2023/09/23")#輸入日期
+input_course_date.send_keys("2023/09/28")#輸入日期
 
 
 wait.until(lambda driver:driver.find_element("xpath","/html/body/div/div[2]/main/div[2]/div[3]/div[3]/div[2]/div/input"))
 start_time = URL.find_element("xpath","/html/body/div/div[2]/main/div[2]/div[3]/div[3]/div[2]/div/input")
-start_time.send_keys(Keys.CONTROL, 'v ')#輸入課程開始時間 (先複製時間:ex.10:00)
+start_time.send_keys(Keys.CONTROL, 'v ')#輸入課程開始時間 (先複製時間:ex.17:00)
 
 URL.execute_script("window.scrollBy(0,600)")
 
@@ -121,18 +122,10 @@ choose_course_lable.send_keys(Keys.ENTER)
 time.sleep(2)
 wait.until(lambda driver:driver.find_element("xpath","/html/body/div/div[2]/main/div[2]/div[4]/div[3]/div[2]/div[2]/div/div/input"))
 choose_teacher = URL.find_element("xpath","/html/body/div/div[2]/main/div[2]/div[4]/div[3]/div[2]/div[2]/div/div/input")
-ActionChains(URL).move_to_element(choose_teacher).click().perform()#選擇老師
-for i in range(2):
-    choose_teacher.send_keys(Keys.DOWN)
+choose_teacher.click()
+choose_teacher.send_keys("李間奈")
+choose_teacher.send_keys(Keys.DOWN)
 choose_teacher.send_keys(Keys.ENTER)
-
-time.sleep(2)
-wait.until(lambda driver:driver.find_element("xpath","/html/body/div/div[2]/main/div[2]/div[4]/div[4]/div[2]/div/div/div/input"))
-choose_library = URL.find_element("xpath","/html/body/div/div[2]/main/div[2]/div[4]/div[4]/div[2]/div/div/div/input")
-choose_library.click()#選擇叢書
-for i in range(9):
-    choose_library.send_keys(Keys.DOWN)
-choose_library.send_keys(Keys.ENTER)
 
 time.sleep(2)
 URL.execute_script("window.scrollBy(0,600)")
