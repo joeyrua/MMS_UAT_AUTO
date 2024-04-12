@@ -50,8 +50,6 @@ for i  in range(3):
     choose_course_type.send_keys(Keys.DOWN)
 choose_course_type.send_keys(Keys.ENTER)
 
-
-
 time.sleep(2)
 URL.execute_script("window.scrollBy(0,500)")
 
