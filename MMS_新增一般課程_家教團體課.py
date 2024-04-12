@@ -104,12 +104,12 @@ course_type.send_keys(Keys.ENTER)
 
 wait.until(lambda driver:driver.find_element("xpath","/html/body/div/div[2]/main/div[2]/div[3]/div[2]/div[2]/div/input"))
 input_course_date = URL.find_element("xpath","/html/body/div/div[2]/main/div[2]/div[3]/div[2]/div[2]/div/input")
-input_course_date.send_keys("2023/09/28")#輸入日期
+input_course_date.send_keys("2023/10/11")#輸入日期
 
 
 wait.until(lambda driver:driver.find_element("xpath","/html/body/div/div[2]/main/div[2]/div[3]/div[3]/div[2]/div/input"))
 start_time = URL.find_element("xpath","/html/body/div/div[2]/main/div[2]/div[3]/div[3]/div[2]/div/input")
-start_time.send_keys(Keys.CONTROL, 'v ')#輸入課程開始時間 (先複製時間:ex.17:00)
+start_time.send_keys(Keys.CONTROL, 'v ')#輸入課程開始時間 (先複製時間:ex.16:00)
 
 URL.execute_script("window.scrollBy(0,600)")
 
