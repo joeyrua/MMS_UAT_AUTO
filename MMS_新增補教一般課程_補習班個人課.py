@@ -83,6 +83,8 @@ start_time.send_keys("1900")#輸入開始時間
 wait.until(lambda driver:driver.find_element("xpath","/html/body/div[1]/div[3]/main/div[2]/div[3]/div[4]/div[2]/div/input"))
 input_course_time = URL.find_element("xpath","/html/body/div[1]/div[3]/main/div[2]/div[3]/div[4]/div[2]/div/input")
 input_course_time.send_keys("25")
+
+
 URL.execute_script("window.scrollBy(0,500)")
 
 wait.until(lambda driver:driver.find_element("xpath","/html/body/div[1]/div[3]/main/div[2]/div[4]/div[2]/div[2]/div[2]/div/div/input"))
@@ -118,11 +120,26 @@ post = URL.find_element("xpath","/html/body/div[1]/div[3]/main/div[2]/div[6]/div
 post.click()#發布
 
 
-#------等待學校組確認問題-----
-"""
 wait.until(lambda driver:driver.find_element("xpath","/html/body/div[1]/div[3]/main/div[2]/div[3]/div/div[2]/div[2]/div/div/input"))
 search_input_organization = URL.find_element("xpath","/html/body/div[1]/div[3]/main/div[2]/div[3]/div/div[2]/div[2]/div/div/input")
 search_input_organization.send_keys("UAT測試機構")
 search_input_organization.send_keys(Keys.ENTER)
-"""
 
+wait.until(lambda driver:driver.find_element("xpath","/html/body/div[1]/div[3]/main/div[2]/div[5]/table/tbody/tr/td[8]/div/div/button"))
+edit = URL.find_element("xpath","/html/body/div[1]/div[3]/main/div[2]/div[5]/table/tbody/tr/td[8]/div/div/button")
+edit.click()
+
+
+URL.switch_to.window(URL.window_handles[2])#切換到另一個分頁
+
+wait.until(lambda driver:driver.find_element("xpath","/html/body/div[1]/div[3]/main/div[2]/div[8]/div/div[1]/div"))
+cancel_course = URL.find_element("xpath","/html/body/div[1]/div[3]/main/div[2]/div[8]/div/div[1]/div")
+cancel_course.click()
+
+wait.until(lambda driver:driver.find_element("xpath","/html/body/div[5]/div[3]/div/div/div[1]/div[4]/div/textarea[1]"))
+cancel_reason=URL.find_element("xpath","/html/body/div[5]/div[3]/div/div/div[1]/div[4]/div/textarea[1]")
+cancel_reason.send_keys("aaa")
+
+wait.until(lambda driver:driver.find_element("xpath","/html/body/div[5]/div[3]/div/div/div[2]/button[2]"))
+confirm_cancel = URL.find_element("xpath","/html/body/div[5]/div[3]/div/div/div[2]/button[2]")
+confirm_cancel.click()
