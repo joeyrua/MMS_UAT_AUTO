@@ -125,6 +125,8 @@ search_input_organization = URL.find_element("xpath","/html/body/div[1]/div[3]/m
 search_input_organization.send_keys("UAT測試機構")
 search_input_organization.send_keys(Keys.ENTER)
 
+time.sleep(5)
+
 wait.until(lambda driver:driver.find_element("xpath","/html/body/div[1]/div[3]/main/div[2]/div[5]/table/tbody/tr/td[8]/div/div/button"))
 edit = URL.find_element("xpath","/html/body/div[1]/div[3]/main/div[2]/div[5]/table/tbody/tr/td[8]/div/div/button")
 edit.click()
